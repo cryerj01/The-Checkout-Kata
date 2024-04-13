@@ -8,29 +8,57 @@ namespace UnitTests
     public class UnitTest1
     {
         [TestMethod]
-        public void AllNumberAddUpWithNoSpecialPrice()
+
+        [DataRow(50, "A")]
+        [DataRow(80, "AB")]
+        [DataRow(100, "ABC")]
+        [DataRow(115,"ABCD")]
+        //random order
+        [DataRow(80, "BA")]
+        [DataRow(100, "BAC")]
+        [DataRow(115, "ADCB")]
+
+        public void AllNumberAddUpWithNoSpecialPrice(int total,string products)
         {
-            List<Product> products = new List<Product>();
-            products.Add(new Product("A", 50, 130, 3));
-            products.Add(new Product("B", 30, 45, 2));
-            products.Add(new Product("C", 20));
-            products.Add(new Product("D", 15));
-
-
-
+     
             var checkout = new Checkout();
-            
-            products.ForEach(p => { checkout.Scan(p);
-                Console.WriteLine(checkout.total);
-                checkout.GetTotalPrice();
-                Console.WriteLine(checkout.total);
-            });
-
-
-            int value = 50 + 30 + 20 + 15;
-          Assert.AreEqual(value,checkout.total, "total is : " + checkout.total + ". value is : " +value );
+            checkout.Scan(products);
+                      
+          Assert.AreEqual(total,checkout.total);
 
 
         }
+
+        [TestMethod]
+        [DataRow(130, "AAA")]
+        [DataRow(260, "AAAAAA")]
+        [DataRow(160,"AAAB")]
+        public void PricesWithSpecials(int total, string products) {
+            var checkout = new Checkout();
+            checkout.Scan(products);
+
+            Assert.AreEqual(total, checkout.total);
+
+
+        }
+
+        [TestMethod]
+        [DataRow(20, "AAA")]
+        [DataRow(15, "BB")]
+        [DataRow(35, "AAABB")]
+        [DataRow(35, "AAABBCD")]
+        [DataRow(20,"AABA")]
+
+        public void checkSavings(int savings, string products) {
+
+            var checkout = new Checkout();
+            checkout.Scan(products);
+
+            Assert.AreEqual(savings, checkout.saving);
+
+        }
+
+
+
     }
 }

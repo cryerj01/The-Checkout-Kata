@@ -14,7 +14,7 @@ namespace The_Checkout_Kata
         public int total { get; set; }
         public int saving { get; set; }
 
-        public void Scan(Product item);
+        public void Scan(string item);
         public int GetTotalPrice();
         public List<Product> GetProducts();
     }
