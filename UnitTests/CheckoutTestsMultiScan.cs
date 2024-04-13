@@ -27,7 +27,7 @@ namespace CheckoutTestsMultiScan
             {
                 checkout.Scan(p.ToString());
             }
-            Assert.AreEqual(total, checkout.total);
+            Assert.AreEqual(total, checkout.GetTotalPrice());
         }
 
     }

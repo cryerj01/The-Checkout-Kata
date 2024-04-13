@@ -27,20 +27,26 @@ namespace The_Checkout_Kata
 
         }
 
-        public List<Product> products { get; set; }
-        public int total { get; set; }
-        public int saving { get; set; }
+       private  List<Product> products { get; set; }
+        private int total { get; set; }
+        private int saving { get; set; }
 
         public List<Product> GetProducts()
         {
             return products;
         }
 
+        public int GetSavings()
+        {
+          GetTotalPrice();
+            return saving;
+        }
+
         public int GetTotalPrice()
         {
             if (products?.Count == 0) return 0;
             total = 0;
-            var noneSpecial = products.Where(x => x.SpecialPrice == 0).ToList();
+            var noneSpecial = products?.Where(x => x.SpecialPrice == 0).ToList();
             total = noneSpecial.Sum(x => x.UnitPrice);
 
             var special = products.Where(x => x.SpecialPrice != 0).ToList();
@@ -65,16 +71,12 @@ namespace The_Checkout_Kata
 
         public void Scan(string item)
         {
-
-
-
             foreach (char a in item.ToCharArray())
             {
-                Product product = AvalibleProducts.Where(x => x.SKU.ToLower() == a.ToString().ToLower()).FirstOrDefault();
+                Product product = AvalibleProducts?.Where(x => x.SKU.ToLower() == a.ToString().ToLower()).FirstOrDefault();
                 products.Add(product);
 
             }
-            GetTotalPrice();
         }
 
 

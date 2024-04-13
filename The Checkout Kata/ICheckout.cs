@@ -10,12 +10,11 @@ namespace The_Checkout_Kata
 {
     public interface ICheckout
     {
-        public List<Product> products { get; set; }
-        public int total { get; set; }
-        public int saving { get; set; }
+      
 
         public void Scan(string item);
         public int GetTotalPrice();
+        public int GetSavings();
         public List<Product> GetProducts();
     }
 }

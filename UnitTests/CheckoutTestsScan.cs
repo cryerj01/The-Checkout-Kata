@@ -24,7 +24,7 @@ namespace CheckoutTestsOneScan
         {
             
             checkout.Scan(products);
-            Assert.AreEqual(total,checkout.total);
+            Assert.AreEqual(total,checkout.GetTotalPrice());
         }
 
 
@@ -39,7 +39,7 @@ namespace CheckoutTestsOneScan
 
         public void PricesWithSpecials(int total, string products) {
             checkout.Scan(products);
-            Assert.AreEqual(total, checkout.total);
+            Assert.AreEqual(total, checkout.GetTotalPrice());
         }
 
         [TestMethod]
@@ -48,7 +48,7 @@ namespace CheckoutTestsOneScan
 
         public void MixOfSpecialAndNoneSpecial(int total, string products) {
             checkout.Scan(products);
-            Assert.AreEqual(total, checkout.total);
+            Assert.AreEqual(total, checkout.GetTotalPrice());
         }
 
 
@@ -71,7 +71,7 @@ namespace CheckoutTestsOneScan
         public void checkSavings(int savings, string products)
         { 
             checkout.Scan(products);
-            Assert.AreEqual(savings, checkout.saving);
+            Assert.AreEqual(savings, checkout.GetSavings());
         }
         [TestMethod]
         [DataRow("A")]
@@ -84,7 +84,7 @@ namespace CheckoutTestsOneScan
         [DataRow("ADCB")]
         public void checkNoSpecialsSaving(string products) {
             checkout.Scan(products);
-            Assert.AreEqual(0, checkout.saving);
+            Assert.AreEqual(0, checkout.GetSavings());
         }
     }
 
