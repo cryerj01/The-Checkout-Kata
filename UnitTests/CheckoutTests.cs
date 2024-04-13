@@ -2,7 +2,7 @@ using System.ComponentModel.Design;
 using The_Checkout_kata;
 using The_Checkout_Kata;
 
-namespace UnitTests
+namespace CheckoutTests
 {
     [TestClass]
     public class CheckoutTestsPrice
