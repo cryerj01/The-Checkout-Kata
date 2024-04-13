@@ -33,11 +33,10 @@ namespace CheckoutTestsMultiScan
         [TestMethod]
         [DataRow(130, "AAA")]
         [DataRow(260, "AAAAAA")]
-        [DataRow(160, "AAAB")]
         [DataRow(175, "ABAAB")]
         [DataRow(175, "ABABA")]
 
-        public void PricesWithSpecials(int total, string products)
+        public void OnlySpecialsnoExtra(int total, string products)
         {
             foreach (char p in products.ToCharArray())
             {

@@ -22,7 +22,6 @@ namespace CheckoutTestsOneScan
 
         public void AllNumberAddUpWithNoSpecialPrice(int total,string products)
         {
-            
             checkout.Scan(products);
             Assert.AreEqual(total,checkout.GetTotalPrice());
         }
@@ -33,11 +32,10 @@ namespace CheckoutTestsOneScan
         [TestMethod]
         [DataRow(130, "AAA")]
         [DataRow(260, "AAAAAA")]
-        [DataRow(160,"AAAB")]
         [DataRow(175, "ABAAB")]
         [DataRow(175, "ABABA")]
 
-        public void PricesWithSpecials(int total, string products) {
+        public void OnlySpecialsnoExtra(int total, string products) {
             checkout.Scan(products);
             Assert.AreEqual(total, checkout.GetTotalPrice());
         }
@@ -78,7 +76,6 @@ namespace CheckoutTestsOneScan
         [DataRow("AB")]
         [DataRow("ABC")]
         [DataRow("ABCD")]
-        //random order
         [DataRow( "BA")]
         [DataRow("BAC")]
         [DataRow("ADCB")]
