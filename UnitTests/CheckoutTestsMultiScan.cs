@@ -48,6 +48,10 @@ namespace CheckoutTestsMultiScan
         [TestMethod]
         [DataRow(160, "ABAA")]
         [DataRow(165, "ABCAB")]
+        [DataRow(275,"BCCBDDAABA")]
+        [DataRow(640, "ABDCABCBDAABADAABDABAD")]
+       
+
 
         public void MixOfSpecialAndNoneSpecial(int total, string products)
         {
@@ -85,7 +89,6 @@ namespace CheckoutTestsMultiScan
         [DataRow("AB")]
         [DataRow("ABC")]
         [DataRow("ABCD")]
-        //random order
         [DataRow("BA")]
         [DataRow("BAC")]
         [DataRow("ADCB")]
