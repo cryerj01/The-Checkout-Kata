@@ -3,10 +3,10 @@ using System.ComponentModel.Design;
 using The_Checkout_kata;
 using The_Checkout_Kata;
 
-namespace CheckoutTests
+namespace CheckoutTestsOneScan
 {
     [TestClass]
-    public class CheckoutTestsPricebulkScan
+    public class CheckoutTestsPriceScan
     {
         public Checkout checkout = new Checkout();
 
@@ -56,7 +56,7 @@ namespace CheckoutTests
     }
 
     [TestClass]
-    public class CheckoutTestsSavingsbulkscan {
+    public class CheckoutTestsSavingsScan {
         public Checkout checkout = new Checkout();
 
 
@@ -88,26 +88,6 @@ namespace CheckoutTests
         }
     }
 
-    [TestClass]
-    public class CheckoutTestsPriceMultiScan
-    {
-        Checkout checkout = new Checkout();
-        [TestMethod]
-        [DataRow(50, "A")]
-        [DataRow(80, "AB")]
-        [DataRow(100, "ABC")]
-        [DataRow(115, "ABCD")]
-        [DataRow(80, "BA")]
-        [DataRow(100, "BAC")]
-        [DataRow(115, "ADCB")]
-
-        public void checkPriceMultiScan(int total,string products) {
-        foreach (char p in products.ToCharArray()) {
-                checkout.Scan(p.ToString());
-            }
-        Assert.AreEqual(total, checkout.total);
-        }
-
+  
 
     }
-}
