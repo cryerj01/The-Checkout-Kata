@@ -5,7 +5,7 @@ using The_Checkout_Kata;
 namespace UnitTests
 {
     [TestClass]
-    public class UnitTest1
+    public class CheckoutTestsPrice
     {
         [TestMethod]
 
@@ -42,14 +42,24 @@ namespace UnitTests
 
         }
 
+   
+
+
+
+    }
+
+    [TestClass]
+    public class CheckoutTestsSavings {
         [TestMethod]
         [DataRow(20, "AAA")]
         [DataRow(15, "BB")]
         [DataRow(35, "AAABB")]
         [DataRow(35, "AAABBCD")]
-        [DataRow(20,"AABA")]
+        [DataRow(20, "AABA")]
+        [DataRow(0, "ABA")]
 
-        public void checkSavings(int savings, string products) {
+        public void checkSavings(int savings, string products)
+        {
 
             var checkout = new Checkout();
             checkout.Scan(products);
@@ -57,8 +67,5 @@ namespace UnitTests
             Assert.AreEqual(savings, checkout.saving);
 
         }
-
-
-
     }
 }
