@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using The_Checkout_kata;
 using The_Checkout_Kata;
 
 namespace CheckoutTestsMultiScan
@@ -11,7 +12,12 @@ namespace CheckoutTestsMultiScan
     [TestClass]
     public class CheckoutTestsTotalMultiScan
     {
-        Checkout checkout = new Checkout();
+        public Checkout checkout = new Checkout(new List<Product> {
+                new Product("A", 50, 130, 3),
+                new Product("B", 30, 45, 2),
+                new Product("C", 20),
+                new Product("D", 15) });
+        
         [TestMethod]
         [DataRow(50, "A")]
         [DataRow(80, "AB")]
@@ -66,7 +72,12 @@ namespace CheckoutTestsMultiScan
     [TestClass]
     public class CheckoutTestsSavingMultiScan
     {
-        Checkout checkout = new Checkout();
+        public Checkout checkout = new Checkout(new List<Product> {
+                new Product("A", 50, 130, 3),
+                new Product("B", 30, 45, 2),
+                new Product("C", 20),
+                new Product("D", 15) });
+
 
         [TestMethod]
         [DataRow(20, "AAA")]

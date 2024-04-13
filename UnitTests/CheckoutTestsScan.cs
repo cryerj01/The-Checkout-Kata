@@ -8,8 +8,11 @@ namespace CheckoutTestsOneScan
     [TestClass]
     public class CheckoutTestsPriceScan
     {
-        public Checkout checkout = new Checkout();
-
+         public Checkout checkout = new Checkout(new List<Product> {
+                new Product("A", 50, 130, 3),
+                new Product("B", 30, 45, 2),
+                new Product("C", 20),
+                new Product("D", 15) });
         [TestMethod]
 
         [DataRow(50, "A")]
@@ -57,7 +60,11 @@ namespace CheckoutTestsOneScan
 
     [TestClass]
     public class CheckoutTestsSavingsScan {
-        public Checkout checkout = new Checkout();
+        public Checkout checkout = new Checkout(new List<Product> {
+                new Product("A", 50, 130, 3),
+                new Product("B", 30, 45, 2),
+                new Product("C", 20),
+                new Product("D", 15) });
 
 
         [TestMethod]

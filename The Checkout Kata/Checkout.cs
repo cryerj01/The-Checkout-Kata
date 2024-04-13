@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,17 +14,12 @@ namespace The_Checkout_Kata
 
         private List<Product> AvalibleProducts = new List<Product>();
 
-        public Checkout()
+        public Checkout(List<Product> avalibleProducts)
         {
             this.products = new List<Product>();
             this.total = 0;
             this.saving = 0;
-            this.AvalibleProducts.AddRange(new List<Product> {
-                new Product("A", 50, 130, 3),
-                new Product("B", 30, 45, 2),
-                new Product("C", 20),
-                new Product("D", 15)
-        });
+            this.AvalibleProducts.AddRange(avalibleProducts);
 
         }
 
